@@ -47,3 +47,29 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+const { Client } = require('minecraft-launcher-core');
+const ipcMain = require('electron').ipcMain;
+
+const launcher = new Client();
+
+ipcMain.handle('launch-minecraft', async (event, auth, version) => {
+    const options = {
+        authorization: auth,
+        root: './minecraft', // Game directory
+        version,
+        memory: {
+            max: '4G',
+            min: '2G',
+        },
+    };
+
+    try {
+        launcher.launch(options);
+        launcher.on('download-status', (status) => {
+            console.log(`Downloading: ${status}`);
+        });
+    } catch (error) {
+        console.error('Error launching Minecraft:', error);
+    }
+});
