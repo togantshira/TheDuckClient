@@ -2,6 +2,7 @@
 
 const launchButton = document.getElementById('launchButton');
 
+
 launchButton.addEventListener('click', async () => {
     try {
         await window.electronAPI.launchGame();
@@ -10,3 +11,5 @@ launchButton.addEventListener('click', async () => {
         console.error('Error launching Minecraft:', error);
     }
 });
+
+

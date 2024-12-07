@@ -5,14 +5,17 @@ const { launch } = require('@xmcl/core');  //using xmlc
 
 let mainWindow;
 
+
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
-        width: 400,
-        height: 200,
+        width: 1080,
+        height: 1080,
         webPreferences: {
             preload: path.join(__dirname, 'front-end', 'preload.js'),  // using a secure bridge
         },
     });
+
+
 
     // Load the HTML file from the frontend folder
     mainWindow.loadFile(path.join(__dirname, 'front-end', 'index.html'));
@@ -48,3 +51,5 @@ ipcMain.handle('launch-game', async () => {
         console.error('Error launching Minecraft:', err);
     }
 });
+
+
