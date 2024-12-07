@@ -1,75 +1,50 @@
-const { app, BrowserWindow } = require('electron');
+// main.js
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const fs = require('fs');
+const { launch } = require('@xmcl/core');  //using xmlc
 
 let mainWindow;
 
-function createWindow() {
-  const indexPath = path.join(__dirname, 'front-end', 'index.html');
-  console.log('Loading HTML from path:', indexPath);
-
-  
-  if (fs.existsSync(indexPath)) {
-    console.log('index.html exists, proceeding to load');
-
-    
+app.on('ready', () => {
     mainWindow = new BrowserWindow({
-      width: 1080,
-      height: 600,
-      webPreferences: {
-        nodeIntegration: true,  
-      },
-    });
-
-    
-    mainWindow.loadFile(indexPath);
-
-    mainWindow.webContents.openDevTools();  
-
-    mainWindow.on('closed', () => {
-      mainWindow = null;
-    });
-  } else {
-    console.error('index.html does not exist at the given path');
-  }
-}
-
-app.whenReady().then(createWindow);
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
-
-const { Client } = require('minecraft-launcher-core');
-const ipcMain = require('electron').ipcMain;
-
-const launcher = new Client();
-
-ipcMain.handle('launch-minecraft', async (event, auth, version) => {
-    const options = {
-        authorization: auth,
-        root: './minecraft', // Game directory
-        version,
-        memory: {
-            max: '4G',
-            min: '2G',
+        width: 400,
+        height: 200,
+        webPreferences: {
+            preload: path.join(__dirname, 'front-end', 'preload.js'),  // using a secure bridge
         },
-    };
+    });
+
+    // Load the HTML file from the frontend folder
+    mainWindow.loadFile(path.join(__dirname, 'front-end', 'index.html'));
+    mainWindow.setMenuBarVisibility(false);  // Hide menu bar
+    mainWindow.webContents.openDevTools();  // Open DevTools for debugging
+});
+
+// Handle 'launch-game' request from renderer process
+ipcMain.handle('launch-game', async () => {
+    const minecraftDir = path.join(process.env.APPDATA, '.minecraft'); // Minecraft directory path
+    const javaPath = "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot\\bin\\java.exe"; // Path to Java executable (make sure to change this if needed)
+    const version = '1.20.1'; // Minecraft version
 
     try {
-        launcher.launch(options);
-        launcher.on('download-status', (status) => {
-            console.log(`Downloading: ${status}`);
+        // Launch Minecraft with the specified game path, java path, and version
+        const proc = await launch({
+            gamePath: minecraftDir,
+            javaPath: javaPath,
+            version: version,
         });
-    } catch (error) {
-        console.error('Error launching Minecraft:', error);
+
+        console.log('Minecraft is launching...');
+
+        // Debugging outputs
+        proc.on('exit', (code) => {
+            console.log(`Minecraft exited with code ${code}`);
+        });
+
+        proc.on('error', (err) => {
+            console.error('Error during launch:', err);
+        });
+    } catch (err) {
+        console.error('Error launching Minecraft:', err);
     }
 });
