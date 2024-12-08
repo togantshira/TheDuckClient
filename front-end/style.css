@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 *{
     margin:auto;
     text-align: center;
@@ -34,13 +40,13 @@ a button{
 }
 
 .light-theme{
-
+    color: black;
     background-color: white;
 
 }
 
 .dark-theme{
-
-    background-color: black;
+    color: #ccc;
+    background-color: rgb(61, 59, 59);
 
 }
