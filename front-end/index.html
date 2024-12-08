@@ -8,15 +8,6 @@
 </head>
 <body>
     <section id="main-launcher-page" class="active"> <!-- Add class active to show by default -->
-<<<<<<< HEAD
-        <p>
-            
-            <a href="#" class="toggle" data-target="main-launcher-page">Main</a>
-            <a href="#" class="toggle" data-target="a-u">About Us</a>
-            <a href="#" class="toggle" data-target="mods">Mods</a>
-            <a href="#" class="toggle" data-target="shop">shop</a>
-        </p>
-=======
         <nav>
             <a href="#" class="toggle" data-target="main-launcher-page"><button>Main</button></a><br>
             
@@ -55,7 +46,6 @@
             <p>Play Minecraft knowing that you are a duck.</p>
             <button id="launchButton">Launch Minecraft</button>
         </main>
->>>>>>> 770b7cfd4a726d3cb65e81b78172b18bab1e28c8
 
     </section>
 
@@ -96,25 +86,7 @@
     </section>
 
     <script src="render.js"></script>
-    <script>
-       
-        document.querySelectorAll('.toggle').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault(); 
-
-               
-                const targetId = this.getAttribute('data-target');
-                
-                // Hide all sections
-                document.querySelectorAll('section').forEach(section => {
-                    section.classList.remove('active'); 
-                });
-
-                const targetSection = document.getElementById(targetId);
-                targetSection.classList.add('active'); 
-            });
-        });
-    </script>
+    <script src="querySelect.js"></script>
 
 
 </body>
