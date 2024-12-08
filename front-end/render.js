@@ -31,4 +31,9 @@ themeToggle.addEventListener("click", () => {
     }
 });
 
+if (!savedTheme) {
+    document.body.classList.add("light-theme");
+    localStorage.setItem("theme", "light-theme");
+}
+
 
