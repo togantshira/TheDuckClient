@@ -31,6 +31,7 @@ a button{
 
 .launch{
     border:none;
+<<<<<<< HEAD
 }
 
 .button-container{
@@ -63,3 +64,21 @@ a button{
 .launch:hover {
     background-color: rgb(247, 244, 202); /* Slightly lighter or darker shade */
     cursor: pointer; /* Changes the cursor to a hand */
+=======
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+}
+
+.light-theme{
+
+    background-color: white;
+
+}
+
+.dark-theme{
+
+    background-color: black;
+
+}
+>>>>>>> 89fd728e69ffcb2b8f04a29316ef3ae2c88750b2
