@@ -1,34 +1,73 @@
-<!--index.html-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Minecraft Launcher</title>
+    <style>
+        /* Optional CSS to style the sections */
+        section {
+            display: none; /* Hide all sections initially */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .active {
+            display: block; /* Show active section */
+        }
+
+        a {
+            margin: 0 10px;
+            cursor: pointer;
+            text-decoration: underline;
+            color: blue;
+        }
+    </style>
 </head>
 <body>
-  <section id="main-launcher-page">
-    <p><a href="main-launcher-page">Main</a> <a href="a-u">about us </a><a href="mods">mods</a> </p>
+    <section id="main-launcher-page" class="active"> <!-- Add class active to show by default -->
+        <p>
+            <a href="#" class="toggle" data-target="main-launcher-page">Main</a>
+            <a href="#" class="toggle" data-target="a-u">About Us</a>
+            <a href="#" class="toggle" data-target="mods">Mods</a>
+        </p>
 
-    <h1>THE DUCK CLIENT</h1>
+        <h1>THE DUCK CLIENT</h1>
+        <p>Play Minecraft knowing that you are a duck.</p>
+        <button id="test">IPCC Test</button>
+        <button id="launchButton">Launch Minecraft</button>
+    </section>
 
-    <p>play minecraft knowing that you are a duck</p>
+    <section id="a-u">
+        <p>Nothing here yet.</p>
+    </section>
+  
+    <section id="mods">
+        <p>Coming soon: Mods section!</p>
+    </section>
 
-    <button id="test">ipcc test</button>
-
-    <button id="launchButton">Launch Minecraft</button>
-
-  </section>
-
-  <section id="a-u">
-
-    <p>nothing here yet</p>
-
-  </section>
     <script src="render.js"></script>
+    <script>
+       
+        document.querySelectorAll('.toggle').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); 
+
+               
+                const targetId = this.getAttribute('data-target');
+                
+                // Hide all sections
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active'); 
+                });
+
+                const targetSection = document.getElementById(targetId);
+                targetSection.classList.add('active'); 
+            });
+        });
+    </script>
 </body>
 </html>

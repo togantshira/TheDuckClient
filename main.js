@@ -26,7 +26,7 @@ app.on('ready', () => {
 // Handle 'launch-game' request from renderer process
 ipcMain.handle('launch-game', async () => {
     const minecraftDir = path.join(process.env.APPDATA, '.minecraft'); // Minecraft directory path
-    const javaPath = "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot\\bin\\java.exe"; //change this to ur path
+    const javaPath = "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot\\bin\\java.exe"; //change this to your path
     const version = '1.20.1'; // Minecraft version
 
     try {
