@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Launcher</title>
+
 </head>
 <body>
+
     <nav>
         <a href="#" class="toggle" data-target="main-launcher-page"><button id="home-button" class="home-button-dark">Main</button></a><br>
+
         <a href="#" class="toggle" data-target="mods"><button id="mod-button" class="mod-button-dark">Mods</button></a><br>
+
         <a href="#" class="toggle" data-target="shop"><button id="shop-button" class="shop-button-dark">Shop</button></a><br>
+
         <a href="#" class="themeToggle"><button id="themeToggle" class="theme-button-dark">switch-theme</button></a>
     </nav>
     <section id="main-launcher-page" class="active"> <!-- Add class active to show by default -->
 
+
         <br>
+
         <br>
+
         <main>
+
             <h1>THE DUCK CLIENT</h1>
+
             <p>Play Minecraft knowing that you are a duck.</p>
+
             <div class="button-container">
+
                 <div class="connected-buttons">
+
                     <button id="launchButton" class="launch-dark">Launch</button>
+
                     <select class="version-dark"> <!--Version Selector-->
+
+
                         <option>1.21.1</option>
                         <option>1.21.0</option>
                         <option>1.20.4</option>
@@ -31,27 +48,40 @@
                         <option>1.20.2</option>
                         <option>1.20.1</option>
                         <option>1.20.0</option>
+
                     </select>
+
                 </div>
+
             </div>
+
         </main>
+
     </section>
 
     <section id="mods">
         <main>
+
             <p>Coming soon: Mods section!</p>
+
         </main>
     </section>
 
     <section id="shop">
+
         <p>shop</p>
+
     </section>
 
     <section>
+
         <button><img src="/GUI-src/settings-200.png" alt="setting-picture"></button>
+
     </section>
 
     <script src="render.js"></script>
     <script src="querySelect.js"></script>
+
+
 </body>
 </html>
