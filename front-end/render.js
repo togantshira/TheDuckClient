@@ -95,16 +95,34 @@ function updateButtonClasses(theme) {
 
         // Update nav buttons for light theme
 
-        if (homeButton) homeButton.classList.replace('home-button-dark', 'home-button-light');
-        if (modButton) modButton.classList.replace('mod-button-dark', 'mod-button-light');
-        if (shopButton) shopButton.classList.replace('shop-button-dark', 'shop-button-light');
-        if (themeButton) themeButton.classList.replace('theme-button-dark', 'theme-button-light');
+        if (homeButton){
+
+            homeButton.classList.replace('home-button-dark', 'home-button-light');
+
+        } 
+
+        if (modButton) {
+
+            modButton.classList.replace('mod-button-dark', 'mod-button-light');
+
+        } 
+        if (shopButton) {
+
+            shopButton.classList.replace('shop-button-dark', 'shop-button-light');
+
+        }
+        if (themeButton){
+
+            themeButton.classList.replace('theme-button-dark', 'theme-button-light');
+
+        } 
 
     } else if (theme === "dark-theme") {
         // Dark theme styles
 
 
         versionButtons.forEach(button => {
+            
             button.classList.remove('version-light');
             button.classList.add('version-dark');
 
@@ -112,6 +130,7 @@ function updateButtonClasses(theme) {
 
         
         launchButtons.forEach(button => {
+
             button.classList.remove('launch-light');
             button.classList.add('launch-dark');
 
@@ -119,6 +138,7 @@ function updateButtonClasses(theme) {
 
 
         navButtons.forEach(button => {
+
             button.classList.remove('nav-button-light');
             button.classList.add('nav-button-dark');
 
@@ -151,23 +171,30 @@ function updateButtonClasses(theme) {
     }
 }
 
-// Function to handle section toggling
+
 document.querySelectorAll('.toggle').forEach(link => {
+
     link.addEventListener('click', function(event) {
+
         event.preventDefault(); 
+
 
         const targetId = this.getAttribute('data-target');
 
         document.querySelectorAll('section').forEach(section => {
             section.classList.remove('active'); 
+
         });
 
         const targetSection = document.getElementById(targetId);
         targetSection.classList.add('active'); 
+
     });
+
 });
 
-// Call the function when the page is loaded
+
+
 document.addEventListener("DOMContentLoaded", () => {
     attachThemeToggleListener();
 });
