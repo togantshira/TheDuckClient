@@ -1,14 +1,18 @@
+/* Global Body styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     transition: background-color 0.3s, color 0.3s;
 }
 
-*{
+/* Universal Reset */
+* {
     text-align: center;
     justify-content: center;
+    box-sizing: border-box; /* Ensures padding and borders don't affect the layout */
 }
 
+/* Section layout */
 section {
     display: none; /* Hide all sections initially */
     padding: 20px;
@@ -16,103 +20,198 @@ section {
     margin-top: 10px;
 }
 
-nav{
-    position:absolute;
-    left:0;
+/* Navigation styles */
+nav {
+    position: absolute;
+    margin-left: 0;
 }
 
-a button{
-    border:none;
-    background-color: rgb(255, 249, 168);
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5%;
-}
-
+/* Active section */
 .active {
     display: block; /* Show active section */
 }
 
+/* Light Theme */
+.light-theme {
+    color: rgb(58, 58, 58); /* Dark text for contrast */
+    background-color: rgb(255, 249, 217); /* Light background */
+}
 
+/* Dark Theme */
+.dark-theme {
+    color: rgb(255, 249, 217); /* Light text for readability */
+    background-color: rgb(58, 58, 58); /* Dark background */
+}
 
-.button-container{
-    display:flex;
-    margin:auto;
+/* Universal button styles */
+button {
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
     justify-content: center;
-    border-radius: 15%;
-    background-color:rgb(248, 245, 214) ;
-    width: 150px;
-    height: 60px;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-.version-dark {
-    background-color: rgb(248, 245, 214); /* Default background */
-    border: none;
-    transition: background-color 0.2s ease; /* Smooth transition for subtle change */
+/*Nav Buttons Style*/
+nav button{
+    margin: 10px 0;
 }
 
-.version-dark:hover {
-    background-color: rgb(247, 244, 202); /* Slightly lighter or darker shade */
-    cursor: pointer; /* Change cursor to indicate interactivity */
-}
-.launch-dark {
-    background-color: rgb(248, 245, 214); /* Default background */
-    border: none;
-    padding-left: 30px;
-    padding-right: 30px;
-    transition: background-color 0.2s ease; /* Smooth transition for subtle change */
+/* Light theme buttons */
+.version-light, .launch-light, .nav-button-light {
+    background-color: rgba(255, 234, 187, 0.755); /* Lighter gray for light theme buttons */
+    color: rgb(58, 58, 58); /* Dark text for readability */
 }
 
-.launch-dark:hover {
-    background-color: rgb(247, 244, 202); /* Slightly lighter or darker shade */
-    cursor: pointer; /* Change cursor to indicate interactivity */
+.version-light:hover, .launch-light:hover, .nav-button-light:hover {
+    background-color: rgba(255, 234, 187, 0.755); /* Slightly darker on hover */
 }
 
-.light-theme{
-    color: rgb(58, 58, 58);
-    background-color: rgb(255, 249, 217);
-
+/* Dark theme buttons */
+.version-dark, .launch-dark, .nav-button-dark {
+    background-color: rgb(80, 80, 80); /* Darker gray for buttons in dark theme */
+    color: rgb(255, 249, 217); /* Light text for readability */
 }
 
-.dark-theme{
-    color: rgb(255, 249, 217);
-    background-color:  rgb(58, 58, 58);
+.version-dark:hover, .launch-dark:hover, .nav-button-dark:hover {
+    background-color: rgb(100, 100, 100); /* Slightly lighter on hover */
+}
 
+/* Launch and Version buttons in light theme */
+.launch-light {
+    background-color: rgba(255, 234, 187, 0.755); /* Light color for launch in light theme */
 }
 
 .version-light {
-    background-color: rgb(58, 58, 58); /* Default background */
-    border: none;
-    transition: background-color 0.2s ease; /* Smooth transition for subtle change */
+    background-color: rgba(255, 234, 187, 0.755); /* Light color for version in light theme */
 }
 
-.version-light:hover {
-    background-color: rgb(50, 50, 50); /* Slightly lighter or darker shade */
-    cursor: pointer; /* Change cursor to indicate interactivity */
+/* Launch and Version buttons in dark theme */
+.launch-dark {
+    background-color: rgb(100, 100, 100); /* Darker color for launch in dark theme */
 }
+
+.version-dark {
+    background-color: rgb(90, 90, 90); /* Darker color for version in dark theme */
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px; /* Adjust width to accommodate both buttons */
+    height: 50px; /* Reduced height */
+    margin: 20px auto;
+    border-radius: 12px;
+    background-color: rgba(255, 234, 187, 0.755); /* Light background in light theme */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Button hover effect */
+button:hover {
+    opacity: 0.9;
+}
+
+/* Nav button styling */
+.nav-button-light {
+    background-color: rgba(255, 234, 187, 0.755); /* Light buttons in light theme */
+}
+
+.nav-button-dark {
+    background-color: rgb(70, 70, 70); /* Dark buttons in dark theme */
+}
+
+/* Dark Theme button container */
+.dark-theme .button-container {
+    background-color: rgb(58, 58, 58); /* Dark background in dark theme */
+}
+
+/* Button container hover effect */
+.button-container:hover {
+    opacity: 0.9;
+}
+
+/* Smooth transition for button colors */
+button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Connected Launch and Version buttons */
+.connected-buttons {
+    display: flex;
+    width: 320px; /* Container width */
+    height: 50px; /* Reduced height */
+    border-radius: 8px;
+    overflow: hidden; /* Hide any overflow from rounding */
+}
+
+/* Left side (Version) button */
+.version-light, .version-dark {
+    width: 30%; /* Slightly smaller width for version button */
+    border-radius: 0; /* Left rounded corners */
+}
+
+/* Right side (Launch) button */
+.launch-light, .launch-dark {
+    width: 70%; /* Slightly bigger width for launch button */
+    border-radius: 0; /* No border-radius on the right */
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+/* Light theme - Version button */
+.version-light {
+    background-color: rgba(255, 234, 187, 0.755); /* Light color for version */
+}
+
+/* Dark theme - Version button */
+.version-dark {
+    background-color: rgb(128, 255, 0); /* Darker color for version */
+}
+
+/* Light theme - Launch button */
 .launch-light {
-    background-color: rgb(58, 58, 58); /* Default background */
-    border: none;
-    padding-left: 30px;
-    padding-right: 30px;
-    transition: background-color 0.2s ease; /* Smooth transition for subtle change */
+    background-color: rgba(255, 234, 187, 0.755); /* Light color for launch */
 }
 
-.launch-light:hover {
-    background-color: rgb(50, 50, 50); /* Slightly lighter or darker shade */
-    cursor: pointer; /* Change cursor to indicate interactivity */
+/* Dark theme - Launch button */
+.launch-dark {
+    background-color: rgb(128, 255, 0); /* Darker color for launch */
 }
 
-.nav-button-dark{
-    border:none;
-    background-color: rgb(247, 244, 202);
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5%;
+/* Hover effects for both buttons */
+.version-light:hover, .launch-light:hover,
+.version-dark:hover, .launch-dark:hover {
+    background-color: rgba(243, 222, 179, 0.755); /* Slightly darker shade */
 }
-.nav-button-light{
-    border:none;
-    background-color: rgb(58, 58, 58);
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5%;
+
+.home-button-dark{
+    background-image: url(/gui-src/home-light.png);
+}
+.home-button-light{
+
+}
+
+.mod-button-dark{
+
+}
+.mod-button-light{
+
+}
+
+.shop-button-dark{
+
+}
+.shop-button-light{
+
+}
+
+.theme-button-dark{
+    
+}
+.theme-button-light{
+
 }
