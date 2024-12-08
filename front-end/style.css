@@ -183,11 +183,12 @@ button {
 }
 
 /* Hover effects for both buttons */
-.version-light:hover, .launch-light:hover,
-.version-dark:hover, .launch-dark:hover {
+.version-light:hover, .launch-light:hover{
     background-color: rgba(243, 222, 179, 0.755); /* Slightly darker shade */
 }
-
+.version-dark:hover, .launch-dark:hover {
+    background-color: rgb(14, 210, 0);
+}
 .home-button-dark{
     background-image: url(/gui-src/home-light.png);
 }
