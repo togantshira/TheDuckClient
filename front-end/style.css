@@ -2,3 +2,33 @@
     margin:auto;
     text-align: center;
 }
+section {
+    display: none; /* Hide all sections initially */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+nav{
+    position:absolute;
+    left:0;
+}
+
+a button{
+    border:none;
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+}
+
+.active {
+    display: block; /* Show active section */
+}
+
+.nav-button{
+    border:none;
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+}

@@ -5,30 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Launcher</title>
-    <style>
-        /* Optional CSS to style the sections */
-        section {
-            display: none; /* Hide all sections initially */
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .active {
-            display: block; /* Show active section */
-        }
-
-        a {
-            margin: 0 10px;
-            cursor: pointer;
-            text-decoration: underline;
-            color: blue;
-        }
-    </style>
 </head>
 <body>
     <section id="main-launcher-page" class="active"> <!-- Add class active to show by default -->
+<<<<<<< HEAD
         <p>
             
             <a href="#" class="toggle" data-target="main-launcher-page">Main</a>
@@ -36,26 +16,104 @@
             <a href="#" class="toggle" data-target="mods">Mods</a>
             <a href="#" class="toggle" data-target="shop">shop</a>
         </p>
+=======
+        <nav>
+            <a href="#" class="toggle" data-target="main-launcher-page"><button>Main</button></a><br>
+            
+            <select class="nav-button"> <!--Version Selector-->
+                <option>
+                    1.21.1
+                </option>
+                <option>
+                    1.21.0
+                </option>
+                <option>
+                    1.20.4
+                </option>
+                <option>
+                    1.20.3
+                </option>
+                <option>
+                    1.20.2
+                </option>
+                <option>
+                    1.20.1
+                </option>
+                <option>
+                    1.20.0
+                </option>
+            </select>
+            <br>
 
-        <h1>THE DUCK CLIENT</h1>
-        <p>Play Minecraft knowing that you are a duck.</p>
-        <button id="test">IPCC Test</button>
-        <button id="launchButton">Launch Minecraft</button>
+            <a href="#" class="toggle" data-target="mods"><button>Mods</button></a><br>
+            <a href="#" class="toggle" data-target="shop"><button>Shop</button></a>
+        </nav>
+        <br>
+        <br>
+        <main>
+            <h1>THE DUCK CLIENT</h1>
+            <p>Play Minecraft knowing that you are a duck.</p>
+            <button id="launchButton">Launch Minecraft</button>
+        </main>
+>>>>>>> 770b7cfd4a726d3cb65e81b78172b18bab1e28c8
+
     </section>
 
     <section id="a-u">
-        <p>Nothing here yet.</p>
+        <nav>
+            <a href="#" class="toggle" data-target="main-launcher-page"><button>Main</button></a><br>
+            <a href="#" class="toggle" data-target="a-u"><button>Versions</button></a><br>
+            <a href="#" class="toggle" data-target="mods"><button>Mods</button></a><br>
+            <a href="#" class="toggle" data-target="shop"><button>Shop</button></a>
+        </nav>
+        <main>
+            <p>Nothing here yet.</p>
+        </main>
+
     </section>
   
     <section id="mods">
-        <p>Coming soon: Mods section!</p>
+        <nav>
+            <a href="#" class="toggle" data-target="main-launcher-page"><button>Main</button></a><br>
+            <a href="#" class="toggle" data-target="a-u"><button>Versions</button></a><br>
+            <a href="#" class="toggle" data-target="mods"><button>Mods</button></a><br>
+            <a href="#" class="toggle" data-target="shop"><button>Shop</button></a>
+        </nav>
+        <main>
+            <p>Coming soon: Mods section!</p>
+        </main>
+
+    </section>
+        
+    <section id="shop">
+        <nav>
+            <a href="#" class="toggle" data-target="main-launcher-page"><button>Main</button></a><br>
+            <a href="#" class="toggle" data-target="a-u"><button>Versions</button></a><br>
+            <a href="#" class="toggle" data-target="mods"><button>Mods</button></a><br>
+            <a href="#" class="toggle" data-target="shop"><button>Shop</button></a>
+        </nav>
+        <p>shop</p>
     </section>
 
-    <section id="shop">shop</section>
+    <script src="render.js"></script>
+    <script>
+       
+        document.querySelectorAll('.toggle').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); 
 
-    <script src="render.js">
-    </script>
-    <script src="querySelect.js">
+               
+                const targetId = this.getAttribute('data-target');
+                
+                // Hide all sections
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active'); 
+                });
+
+                const targetSection = document.getElementById(targetId);
+                targetSection.classList.add('active'); 
+            });
+        });
     </script>
 
 
