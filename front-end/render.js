@@ -26,13 +26,16 @@ function attachThemeToggleListener() {
 
   
     if (savedTheme) {
+
         document.body.classList.add(savedTheme);
         updateButtonClasses(savedTheme); 
+
     } else {
       
         document.body.classList.add("light-theme");
         localStorage.setItem("theme", "light-theme");
         updateButtonClasses("light-theme"); 
+
     }
 
 
@@ -122,7 +125,7 @@ function updateButtonClasses(theme) {
 
 
         versionButtons.forEach(button => {
-            
+
             button.classList.remove('version-light');
             button.classList.add('version-dark');
 
@@ -198,6 +201,8 @@ document.querySelectorAll('.toggle').forEach(link => {
 document.addEventListener("DOMContentLoaded", () => {
     attachThemeToggleListener();
 });
+
+
 
 
 
